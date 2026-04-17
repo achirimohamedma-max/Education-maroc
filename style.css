@@ -99,3 +99,21 @@ p{
 .c4{background:#FF9800;}
 .c5{background:#E91E63;}
 .c6{background:#00BCD4;}
+.hud{
+  background: rgba(0,0,0,0.3);
+  padding:10px;
+  border-radius:10px;
+  margin-bottom:10px;
+  text-align:center;
+}
+
+.answer-btn{
+  display:block;
+  width:80%;
+  margin:10px auto;
+  padding:15px;
+  border:none;
+  border-radius:10px;
+  font-size:18px;
+  cursor:pointer;
+}
