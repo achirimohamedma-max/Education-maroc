@@ -1,33 +1,61 @@
-function navigate(pageId) {
-  document.querySelectorAll('.page').forEach(p => {
-    p.classList.remove('active');
+let score = 0;
+let current = 0;
+
+const questions = [
+  {
+    q: "كم حاصل 2 + 2 ؟",
+    answers: [2, 3, 4],
+    correct: 4
+  },
+  {
+    q: "كم حاصل 3 + 1 ؟",
+    answers: [4, 5, 2],
+    correct: 4
+  },
+  {
+    q: "كم حاصل 5 - 2 ؟",
+    answers: [3, 2, 4],
+    correct: 3
+  }
+];
+
+function loadQuestion() {
+  const q = questions[current];
+
+  document.getElementById("question").innerText = q.q;
+
+  const answersDiv = document.getElementById("answers");
+  answersDiv.innerHTML = "";
+
+  q.answers.forEach(a => {
+    const btn = document.createElement("button");
+    btn.innerText = a;
+    btn.onclick = () => check(a);
+    answersDiv.appendChild(btn);
   });
-
-  document.getElementById(pageId).classList.add('active');
-
-  // تغيير الرابط
-  window.location.hash = pageId;
 }
 
-// عند تحميل الصفحة
-window.addEventListener("load", () => {
-  const page = window.location.hash.replace("#", "") || "home";
-  navigate(page);
-}); 
-let score = 0;
-
-function answer(value) {
+function check(answer) {
   const result = document.getElementById("result");
-  const scoreText = document.getElementById("score");
 
-  if (value === 4) {
+  if (answer === questions[current].correct) {
     result.innerText = "✅ صحيح!";
-    result.style.color = "lightgreen";
     score += 10;
   } else {
     result.innerText = "❌ خطأ";
-    result.style.color = "red";
   }
 
-  scoreText.innerText = "النقاط: " + score;
+  document.getElementById("score").innerText = "النقاط: " + score;
+
+  current++;
+
+  if (current < questions.length) {
+    setTimeout(loadQuestion, 1000);
+  } else {
+    document.getElementById("question").innerText = "🎉 انتهيت!";
+    document.getElementById("answers").innerHTML = "";
+  }
 }
+
+// أول تشغيل
+window.addEventListener("load", loadQuestion);
