@@ -1,28 +1,128 @@
-body {
-  font-family: Arial;
-  background: linear-gradient(#1A3A6B, #2B7EC1);
-  color: white;
-  text-align: center;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Cairo", Arial, sans-serif;
 }
 
+body {
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  color: white;
+  min-height: 100vh;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 25px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+}
+
+nav button {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 8px 15px;
+  border-radius: 10px;
+}
+
+/* Pages */
 .page {
   display: none;
+  padding: 40px 20px;
+  text-align: center;
 }
 
 .page.active {
   display: block;
+  animation: fadeIn 0.4s ease;
 }
 
-button {
-  margin: 10px;
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px);}
+  to { opacity: 1; transform: translateY(0);}
 }
 
-.quiz button {
+/* Home */
+#home h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+#home button {
+  background: #facc15;
+  color: black;
+  font-weight: bold;
+  padding: 12px 25px;
+  border-radius: 15px;
+}
+
+/* Levels */
+#levels button {
   display: block;
-  width: 200px;
   margin: 10px auto;
+  width: 220px;
+  padding: 12px;
+  border-radius: 15px;
+  background: linear-gradient(45deg, #22c55e, #4ade80);
+  color: black;
+  font-weight: bold;
+}
+
+/* Quiz Card */
+.quiz {
+  background: rgba(255,255,255,0.05);
+  padding: 25px;
+  border-radius: 20px;
+  max-width: 350px;
+  margin: auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* Question */
+.question {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* Answers */
+.answers button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.answers button:hover {
+  background: #1d4ed8;
+  transform: scale(1.05);
+}
+
+/* Result */
+.result {
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+/* Score */
+.score {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #facc15;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .quiz {
+    width: 90%;
+  }
 }
