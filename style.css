@@ -1,85 +1,112 @@
 body{
-font-family:"Cairo";
-background:linear-gradient(#0f172a,#1e3a8a);
-color:white;
-margin:0;
+  margin:0;
+  font-family:Arial;
+  background:#0f172a;
+  color:white;
+  text-align:center;
 }
 
-.page{display:none;padding:20px;text-align:center;}
-.page.active{display:block;}
-
-.topbar{
-display:flex;justify-content:space-between;
-padding:10px;background:rgba(255,255,255,0.05);
+/* Header */
+.header{
+  display:flex;
+  justify-content:space-between;
+  padding:10px;
+}
+.xp-box,.level-box{
+  background:#1e293b;
+  padding:8px 15px;
+  border-radius:10px;
 }
 
-.right{display:flex;gap:10px;align-items:center;}
-.logo{width:40px;}
-.left{font-size:14px;}
-
-.hero-img{width:100px;background:white;border-radius:50%;}
-.start-btn{background:gold;padding:15px;border-radius:20px;margin:10px}
-
-.levels-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.level-card{padding:25px;border-radius:20px;font-size:18px;position:relative}
-
-.level-card:nth-child(1){background:#22c55e;}
-.level-card:nth-child(2){background:#3b82f6;}
-.level-card:nth-child(3){background:#f97316;}
-.level-card:nth-child(4){background:#a855f7;}
-.level-card:nth-child(5){background:#eab308;color:black;}
-.level-card:nth-child(6){background:#ef4444;}
-
-.badge{position:absolute;bottom:10px;left:10px}
-
-.quiz{background:rgba(255,255,255,0.1);padding:20px;border-radius:20px}
-
-.question{font-size:26px}
-
-.answers button{
-padding:18px;margin:10px;border-radius:15px;
-font-size:18px;background:white;color:black;width:100%;
+/* HUD */
+.hud{
+  display:flex;
+  justify-content:space-between;
+  padding:10px;
+}
+.hearts{ color:#ef4444; }
+.mission{
+  background:#1e293b;
+  padding:5px 10px;
+  border-radius:10px;
 }
 
-.progress{height:10px;background:#444}
-.progress-bar{height:100%;background:#22c55e}
-
-.timer{font-size:18px}
-.quiz-nav{display:flex;justify-content:space-between}
-
-.stars{font-size:25px;color:gold}
-
-.rank-item{
-background:rgba(255,255,255,0.1);
-padding:10px;margin:10px;border-radius:10px;
+/* MAP */
+.map{ margin-top:10px; }
+.path{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
-/* جهة الوزارة */
-.right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-align: right;
+.node{
+  width:60px;height:60px;
+  border-radius:50%;
+  background:#334155;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:10px;
+  cursor:pointer;
 }
+.node.done{ background:#22c55e; }
+.node.locked{ opacity:0.4; }
 
-/* النص الرئيسي */
-.right h3 {
-  font-size: 16px;
-  font-weight: 700;
-  margin: 0;
-  line-height: 1.4;
-  white-space: nowrap; /* يمنع التكسير */
+.line{
+  width:4px;height:40px;background:#475569;
 }
 
-/* السطر الثاني */
-.right small {
-  font-size: 12px;
-  opacity: 0.8;
-  display: block;
-  margin-top: 2px;
+/* QUIZ */
+.quiz-section{ display:none; }
+
+.progress{
+  height:10px;
+  background:#1e293b;
+  margin:10px;
+  border-radius:10px;
+}
+#progressBar{
+  height:100%;
+  width:0%;
+  background:#22c55e;
+  border-radius:10px;
 }
 
-/* الشعار */
-.logo {
-  width: 42px;
-  height: auto;
+.timer{ margin:10px; }
+
+.card{
+  background:#1e293b;
+  margin:20px;
+  padding:20px;
+  border-radius:20px;
+}
+
+#question{
+  font-size:24px;
+  margin-bottom:15px;
+}
+
+.answer-btn{
+  display:block;
+  width:90%;
+  margin:10px auto;
+  padding:15px;
+  border:none;
+  border-radius:15px;
+  font-size:18px;
+  background:white;
+  color:black;
+  font-weight:bold;
+  transition:0.3s;
+}
+.answer-btn:hover{
+  background:#22c55e;
+  color:white;
+  transform:scale(1.05);
+}
+
+.back-btn{
+  margin:20px;
+  padding:10px 20px;
+  border:none;
+  border-radius:10px;
 }
