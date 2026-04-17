@@ -1,8 +1,22 @@
-// Navigation
+// Navigation 
 function navigate(pageId) {
   document.querySelectorAll('.page').forEach(p => {
     p.classList.remove('active');
   });
+
+  const page = document.getElementById(pageId);
+  if (page) {
+    page.classList.add('active');
+  }
+
+  window.location.hash = pageId;
+
+  // هنا السر 🔥
+  if (allQuestions[pageId]) {
+    questions = allQuestions[pageId];
+    startQuiz();
+  }
+} 
 
   const page = document.getElementById(pageId);
   if (page) {
@@ -19,14 +33,23 @@ function navigate(pageId) {
 // Quiz
 let score = 0;
 let current = 0;
+let questions = [];
+const allQuestions = {
+  level1: [
+    { q: "2 + 2 = ؟", answers: [2, 3, 4], correct: 4 },
+    { q: "1 + 1 = ؟", answers: [1, 2, 3], correct: 2 }
+  ],
 
-const questions = [
-  {
-    q: "2 + 2 = ؟",
-    answers: [2, 3, 4],
-    correct: 4
-  }
-];
+  level2: [
+    { q: "5 + 3 = ؟", answers: [7, 8, 9], correct: 8 },
+    { q: "6 - 2 = ؟", answers: [3, 4, 5], correct: 4 }
+  ],
+
+  level3: [
+    { q: "10 + 5 = ؟", answers: [12, 15, 20], correct: 15 },
+    { q: "9 - 3 = ؟", answers: [5, 6, 7], correct: 6 }
+  ]
+}; 
 
 function startQuiz() {
   current = 0;
