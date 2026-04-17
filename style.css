@@ -327,3 +327,43 @@ text-align:center;
 font-size:38px;
 margin-bottom:20px;
 }
+/* QUIZ CENTER FIX FINAL 🔥 */
+.quiz{
+display:none;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* الصندوق */
+.quiz-box{
+width:90%;
+max-width:500px;
+text-align:center;
+}
+
+/* السؤال */
+#question{
+font-size:40px;
+margin-bottom:30px;
+}
+
+/* grid */
+#answers{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+/* المربعات */
+.answer{
+height:110px;
+font-size:28px;
+border-radius:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-weight:bold;
+width:100%;
+}
