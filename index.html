@@ -3,31 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مدرستي</title>
-
+<title>مدرستي عن بعد</title>
 <link rel="stylesheet" href="style.css">
-
-<!-- Confetti -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 
 <body>
 
-<!-- HUD -->
-<div class="hud">
-⏱️ <span id="timer">10</span> |
-⭐ XP: <span id="xp">0</span> |
-🎮 Level: <span id="playerLevel">1</span>
-</div>
+<!-- 🔷 HEADER -->
+<nav class="topbar">
 
-<h2 id="question"></h2>
-<div id="answers"></div>
+  <div class="right">
+    <h3>وزارة التربية الوطنية والتعليم الأولي والرياضة</h3>
+  </div>
 
-<!-- Sounds -->
-<audio id="correctSound" src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3"></audio>
-<audio id="wrongSound" src="https://assets.mixkit.co/sfx/preview/mixkit-wrong-answer-fail-notification-946.mp3"></audio>
+  <div class="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Coat_of_arms_of_Morocco.png" class="coat">
+  </div>
 
-<script src="app.js"></script>
+  <div class="left">
+    👨‍🏫 الأستاذ محمد العشيري
+  </div>
+
+</nav>
+
+<!-- 🔷 الصفحة الرئيسية -->
+<section class="home">
+
+  <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" class="avatar">
+
+  <h1>مدرستي عن بعد</h1>
+
+  <p>منصة رقمية لدعم التعليم الابتدائي</p>
+
+  <button onclick="goLevels()" class="start-btn">
+    🚀 ابدأ التعلم
+  </button>
+
+</section>
+
+<!-- 🔷 المستويات -->
+<section id="levels" class="levels">
+
+  <h2>🎯 اختر المستوى</h2>
+
+  <div class="grid">
+
+    <div class="card c1" onclick="startLevel(1)">الأول ابتدائي</div>
+    <div class="card c2" onclick="startLevel(2)">الثاني ابتدائي</div>
+    <div class="card c3" onclick="startLevel(3)">الثالث ابتدائي</div>
+    <div class="card c4" onclick="startLevel(4)">الرابع ابتدائي</div>
+    <div class="card c5" onclick="startLevel(5)">الخامس ابتدائي</div>
+    <div class="card c6" onclick="startLevel(6)">السادس ابتدائي</div>
+
+  </div>
+
+</section>
+
+<script>
+function goLevels(){
+  document.querySelector(".home").style.display="none";
+  document.querySelector("#levels").style.display="block";
+}
+
+function startLevel(level){
+  alert("تم اختيار المستوى " + level);
+}
+</script>
 
 </body>
 </html>
