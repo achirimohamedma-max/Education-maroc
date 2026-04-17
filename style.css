@@ -1,112 +1,36 @@
 body{
-  margin:0;
-  font-family:Arial;
-  background:#0f172a;
-  color:white;
-  text-align:center;
+font-family:Arial;
+text-align:center;
+background:#1e3c72;
+color:white;
 }
 
-/* Header */
-.header{
-  display:flex;
-  justify-content:space-between;
-  padding:10px;
-}
-.xp-box,.level-box{
-  background:#1e293b;
-  padding:8px 15px;
-  border-radius:10px;
-}
-
-/* HUD */
 .hud{
-  display:flex;
-  justify-content:space-between;
-  padding:10px;
-}
-.hearts{ color:#ef4444; }
-.mission{
-  background:#1e293b;
-  padding:5px 10px;
-  border-radius:10px;
-}
-
-/* MAP */
-.map{ margin-top:10px; }
-.path{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-.node{
-  width:60px;height:60px;
-  border-radius:50%;
-  background:#334155;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin:10px;
-  cursor:pointer;
-}
-.node.done{ background:#22c55e; }
-.node.locked{ opacity:0.4; }
-
-.line{
-  width:4px;height:40px;background:#475569;
-}
-
-/* QUIZ */
-.quiz-section{ display:none; }
-
-.progress{
-  height:10px;
-  background:#1e293b;
-  margin:10px;
-  border-radius:10px;
-}
-#progressBar{
-  height:100%;
-  width:0%;
-  background:#22c55e;
-  border-radius:10px;
-}
-
-.timer{ margin:10px; }
-
-.card{
-  background:#1e293b;
-  margin:20px;
-  padding:20px;
-  border-radius:20px;
+background:rgba(0,0,0,0.3);
+padding:10px;
+border-radius:10px;
+margin:10px;
 }
 
 #question{
-  font-size:24px;
-  margin-bottom:15px;
+font-size:28px;
+margin-top:20px;
 }
 
 .answer-btn{
-  display:block;
-  width:90%;
-  margin:10px auto;
-  padding:15px;
-  border:none;
-  border-radius:15px;
-  font-size:18px;
-  background:white;
-  color:black;
-  font-weight:bold;
-  transition:0.3s;
-}
-.answer-btn:hover{
-  background:#22c55e;
-  color:white;
-  transform:scale(1.05);
+display:block;
+width:80%;
+margin:10px auto;
+padding:15px;
+font-size:18px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+background:white;
+color:black;
 }
 
-.back-btn{
-  margin:20px;
-  padding:10px 20px;
-  border:none;
-  border-radius:10px;
+.answer-btn:hover{
+background:gold;
+transform:scale(1.05);
 }
