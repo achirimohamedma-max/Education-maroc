@@ -58,3 +58,11 @@ button {
 .primary {
   background: gold;
 }
+.quiz {
+  margin-top: 20px;
+}
+
+#score {
+  font-weight: bold;
+  margin-top: 10px;
+}
