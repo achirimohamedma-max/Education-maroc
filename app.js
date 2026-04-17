@@ -119,8 +119,10 @@ function startQuiz() {
 }
 
 function loadQuestion() {
-  const qEl = document.getElementById("question");
-  const aEl = document.getElementById("answers");
+  const activePage = document.querySelector(".page.active");
+
+  const qEl = activePage.querySelector("#question");
+  const aEl = activePage.querySelector("#answers");
 
   if (!qEl || !aEl) return;
 
@@ -141,8 +143,10 @@ function check(answer) {
   if (locked) return;
   locked = true;
 
-  const result = document.getElementById("result");
-  const scoreText = document.getElementById("score");
+  const activePage = document.querySelector(".page.active");
+
+  const result = activePage.querySelector("#result");
+  const scoreText = activePage.querySelector("#score");
 
   if (answer === questions[current].correct) {
     result.innerText = "✅ صحيح!";
@@ -170,12 +174,13 @@ function check(answer) {
     }
   }, 1000);
 }
-
 function showFinalResult() {
-  const qEl = document.getElementById("question");
-  const aEl = document.getElementById("answers");
-  const result = document.getElementById("result");
-  const scoreText = document.getElementById("score");
+  const activePage = document.querySelector(".page.active");
+
+  const qEl = activePage.querySelector("#question");
+  const aEl = activePage.querySelector("#answers");
+  const result = activePage.querySelector("#result");
+  const scoreText = activePage.querySelector("#score");
 
   if (!qEl || !aEl) return;
 
@@ -185,6 +190,7 @@ function showFinalResult() {
   result.innerText = "النتيجة النهائية:";
   scoreText.innerText = "النقاط: " + score;
 }
+
 
 // ===== Load =====
 window.onload = function () {
