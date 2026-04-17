@@ -4,127 +4,77 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>مدرستي عن بعد</title>
-
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- 🔷 NAVBAR -->
-<nav class="navbar">
-  <h2>مدرستي</h2>
-  <div>
-    <button onclick="navigate('home')">الرئيسية</button>
-    <button onclick="navigate('levels')">المستويات</button>
-    <button onclick="navigate('about')">حول</button>
-  </div>
+<!-- Navbar -->
+<nav>
+  <button onclick="navigate('home')">الرئيسية</button>
+  <button onclick="navigate('levels')">المستويات</button>
 </nav>
 
-<!-- 🔷 الصفحات -->
-<main>
-
-  <!-- 🏠 الصفحة الرئيسية -->
-  <section id="home" class="page active">
-    <h1>📚 مدرستي عن بعد</h1>
-    <p>منصة رقمية للتعليم الابتدائي</p>
-    <button onclick="navigate('levels')" class="primary">ابدأ الآن</button>
-  </section>
-
-  <!-- 🎓 المستويات -->
-  <section id="levels" class="page">
-    <h2>اختر المستوى</h2>
-
-    <div class="grid">
-      <button onclick="navigate('level1')">الأول ابتدائي</button>
-      <button onclick="navigate('level2')">الثاني ابتدائي</button>
-      <button onclick="navigate('level3')">الثالث ابتدائي</button>
-      <button onclick="navigate('level4')">الرابع ابتدائي</button>
-      <button onclick="navigate('level5')">الخامس ابتدائي</button>
-      <button onclick="navigate('level6')">السادس ابتدائي</button>
-    </div>
-  </section>
-
-  <!-- 📘 مستوى -->
-  <section id="level1" class="page">
-    <div class="quiz">
-  <h3 id="question">السؤال هنا</h3>
-
-  <div id="answers"></div>
-
-  <p id="result"></p>
-  <p id="score">النقاط: 0</p>
-    </div>
-<!-- level2 -->
-<section id="level2" class="page">
-  <h2>الثاني ابتدائي</h2>
-  <div class="quiz">
-    <h3 id="question"></h3>
-    <div id="answers"></div>
-    <p id="result"></p>
-    <p id="score">النقاط: 0</p>
-  </div>
+<!-- الصفحة الرئيسية -->
+<section id="home" class="page active">
+  <h1>📚 مدرستي عن بعد</h1>
+  <button onclick="navigate('levels')">ابدأ الآن</button>
 </section>
 
-<!-- level3 -->
-<section id="level3" class="page">
-  <h2>الثالث ابتدائي</h2>
-  <div class="quiz">
-    <h3 id="question"></h3>
-    <div id="answers"></div>
-    <p id="result"></p>
-    <p id="score">النقاط: 0</p>
-  </div>
+<!-- المستويات -->
+<section id="levels" class="page">
+  <h2>اختر المستوى</h2>
+
+  <button onclick="navigate('level1')">الأول ابتدائي</button>
+  <button onclick="navigate('level2')">الثاني ابتدائي</button>
+  <button onclick="navigate('level3')">الثالث ابتدائي</button>
+  <button onclick="navigate('level4')">الرابع ابتدائي</button>
+  <button onclick="navigate('level5')">الخامس ابتدائي</button>
+  <button onclick="navigate('level6')">السادس ابتدائي</button>
 </section>
 
-<!-- level4 -->
-<section id="level4" class="page">
-  <h2>الرابع ابتدائي</h2>
-  <div class="quiz">
-    <h3 id="question"></h3>
-    <div id="answers"></div>
-    <p id="result"></p>
-    <p id="score">النقاط: 0</p>
-  </div>
-</section>
+<!-- Quiz Template (نفسه لكل مستوى) -->
+<section id="level1" class="page"><div class="quiz">
+<h3 id="question"></h3>
+<div id="answers"></div>
+<p id="result"></p>
+<p id="score">النقاط: 0</p>
+</div></section>
 
-<!-- level5 -->
-<section id="level5" class="page">
-  <h2>الخامس ابتدائي</h2>
-  <div class="quiz">
-    <h3 id="question"></h3>
-    <div id="answers"></div>
-    <p id="result"></p>
-    <p id="score">النقاط: 0</p>
-  </div>
-</section>
+<section id="level2" class="page"><div class="quiz">
+<h3 id="question"></h3>
+<div id="answers"></div>
+<p id="result"></p>
+<p id="score">النقاط: 0</p>
+</div></section>
 
-<!-- level6 -->
-<section id="level6" class="page">
-  <h2>السادس ابتدائي</h2>
-  <div class="quiz">
-    <h3 id="question"></h3>
-    <div id="answers"></div>
-    <p id="result"></p>
-    <p id="score">النقاط: 0</p>
-  </div>
-</section>
-  <section id="level2" class="page">
-    <h2>الثاني ابتدائي</h2>
-    <button onclick="navigate('levels')">⬅ رجوع</button>
-  </section>
+<section id="level3" class="page"><div class="quiz">
+<h3 id="question"></h3>
+<div id="answers"></div>
+<p id="result"></p>
+<p id="score">النقاط: 0</p>
+</div></section>
 
-  <section id="level3" class="page">
-    <h2>الثالث ابتدائي</h2>
-    <button onclick="navigate('levels')">⬅ رجوع</button>
-  </section>
+<section id="level4" class="page"><div class="quiz">
+<h3 id="question"></h3>
+<div id="answers"></div>
+<p id="result"></p>
+<p id="score">النقاط: 0</p>
+</div></section>
 
-  <!-- ℹ️ حول -->
-  <section id="about" class="page">
-    <h2>حول المنصة</h2>
-    <p>مشروع تعليمي لدعم التلاميذ</p>
-  </section>
+<section id="level5" class="page"><div class="quiz">
+<h3 id="question"></h3>
+<div id="answers"></div>
+<p id="result"></p>
+<p id="score">النقاط: 0</p>
+</div></section>
 
-</main>
+<section id="level6" class="page"><div class="quiz">
+<h3 id="question"></h3>
+<div id="answers"></div>
+<p id="result"></p>
+<p id="score">النقاط: 0</p>
+</div></section>
 
 <script src="app.js"></script>
 </body>
-</html>
+</html> 
