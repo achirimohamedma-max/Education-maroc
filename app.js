@@ -1,25 +1,4 @@
-let score = 0;
-let current = 0;
-
-const questions = [
-  {
-    q: "كم حاصل 2 + 2 ؟",
-    answers: [2, 3, 4],
-    correct: 4
-  },
-  {
-    q: "كم حاصل 3 + 1 ؟",
-    answers: [4, 5, 2],
-    correct: 4
-  },
-  {
-    q: "كم حاصل 5 - 2 ؟",
-    answers: [3, 2, 4],
-    correct: 3
-  }
-];
-
-// 🔷 Navigation (مهم)
+// Navigation
 function navigate(pageId) {
   document.querySelectorAll('.page').forEach(p => {
     p.classList.remove('active');
@@ -32,13 +11,23 @@ function navigate(pageId) {
 
   window.location.hash = pageId;
 
-  // نشغل quiz غير فـ level1
   if (pageId === "level1") {
     startQuiz();
   }
 }
 
-// 🔷 Quiz
+// Quiz
+let score = 0;
+let current = 0;
+
+const questions = [
+  {
+    q: "2 + 2 = ؟",
+    answers: [2, 3, 4],
+    correct: 4
+  }
+];
+
 function startQuiz() {
   current = 0;
   score = 0;
@@ -46,5 +35,37 @@ function startQuiz() {
 }
 
 function loadQuestion() {
-  const questionEl = document.getElementById("question");
-  const
+  const qEl = document.getElementById("question");
+  const aEl = document.getElementById("answers");
+
+  if (!qEl || !aEl) return;
+
+  const q = questions[current];
+
+  qEl.innerText = q.q;
+  aEl.innerHTML = "";
+
+  q.answers.forEach(a => {
+    const btn = document.createElement("button");
+    btn.innerText = a;
+    btn.onclick = () => check(a);
+    aEl.appendChild(btn);
+  });
+}
+
+function check(answer) {
+  const result = document.getElementById("result");
+
+  if (!result) return;
+
+  if (answer === questions[current].correct) {
+    result.innerText = "✅ صحيح";
+  } else {
+    result.innerText = "❌ خطأ";
+  }
+}
+
+// Load
+window.onload = function () {
+  navigate("home");
+};
