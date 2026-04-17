@@ -1,88 +1,75 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مدرستي عن بعد</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>مدرستي 🎮</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"/>
 
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
-
 <body>
 
-<!-- Header -->
-<nav class="topbar">
-  <div class="right">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Ministry_of_National_Education_Morocco_logo.png" class="logo">
-    <div>
-      <h3>وزارة التربية الوطنية</h3>
-      <small>والتعليم الأولي والرياضة</small>
-    </div>
-  </div>
-
-  <div class="left">
-    👨‍🏫 الأستاذ محمد العشيري
-  </div>
-</nav>
-
-<!-- Home -->
-<section id="home" class="page active home-container">
-  <div class="hero">
-    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" class="hero-img">
-    <h1>مدرستي عن بعد</h1>
-    <p>منصة رقمية لدعم التعلّم الابتدائي</p>
-
-    <button id="startBtn" class="start-btn">🚀 ابدأ التعلم</button>
-    <button onclick="navigate('ranking')">🏆 الترتيب</button>
-
-    <p id="playerInfo"></p>
-  </div>
-</section>
-
-<!-- Levels -->
-<section id="levels" class="page">
-<h2>🎯 اختر المستوى</h2>
-
-<div class="levels-grid">
-<div class="level-card" onclick="navigate('level1')">الأول<div class="badge" id="badge-level1">🔒</div></div>
-<div class="level-card" onclick="navigate('level2')">الثاني<div class="badge" id="badge-level2">🔒</div></div>
-<div class="level-card" onclick="navigate('level3')">الثالث<div class="badge" id="badge-level3">🔒</div></div>
-<div class="level-card" onclick="navigate('level4')">الرابع<div class="badge" id="badge-level4">🔒</div></div>
-<div class="level-card" onclick="navigate('level5')">الخامس<div class="badge" id="badge-level5">🔒</div></div>
-<div class="level-card" onclick="navigate('level6')">السادس<div class="badge" id="badge-level6">🔒</div></div>
+<!-- HEADER -->
+<div class="header">
+  <div class="xp-box">⭐ <span id="xp">0</span></div>
+  <div class="level-box">🎮 Level <span id="playerLevel">1</span></div>
 </div>
-</section>
 
-<!-- Ranking -->
-<section id="ranking" class="page">
-<h2>🏆 ترتيب التلاميذ</h2>
-<div id="rankingList"></div>
-<button onclick="navigate('home')">⬅ رجوع</button>
-</section>
-
-<!-- Quiz (نفسه لكل مستوى) -->
-<section id="level1" class="page"><div class="quiz">
-<div class="quiz-nav">
-<button onclick="navigate('levels')">⬅</button>
-<button onclick="navigate('home')">🏠</button>
+<!-- HUD -->
+<div class="hud">
+  <div class="hearts">❤️ <span id="lives">3</span></div>
+  <div class="mission">🎯 المهمة: أجب على 5 أسئلة صحيحة</div>
 </div>
-<p class="timer"></p>
-<div class="progress"><div class="progress-bar"></div></div>
-<h3 class="question"></h3>
-<div class="answers"></div>
-<p class="result"></p>
-<p class="score"></p>
-<div class="stars"></div>
-</div></section>
 
-<section id="level2" class="page"><div class="quiz">نفس الكود</div></section>
-<section id="level3" class="page"><div class="quiz">نفس الكود</div></section>
-<section id="level4" class="page"><div class="quiz">نفس الكود</div></section>
-<section id="level5" class="page"><div class="quiz">نفس الكود</div></section>
-<section id="level6" class="page"><div class="quiz">نفس الكود</div></section>
+<!-- MAP -->
+<section id="map" class="map">
+  <h2>🎯 مسار التعلم</h2>
+
+  <div class="path">
+    <div class="node done" onclick="startLevel(1)">1</div>
+    <div class="line"></div>
+
+    <div class="node" id="lvl2" onclick="goLevel(2)">2</div>
+    <div class="line"></div>
+
+    <div class="node" id="lvl3" onclick="goLevel(3)">3</div>
+    <div class="line"></div>
+
+    <div class="node" id="lvl4" onclick="goLevel(4)">4</div>
+    <div class="line"></div>
+
+    <div class="node" id="lvl5" onclick="goLevel(5)">5</div>
+    <div class="line"></div>
+
+    <div class="node" id="lvl6" onclick="goLevel(6)">6</div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" class="quiz-section">
+  <!-- Progress -->
+  <div class="progress">
+    <div id="progressBar"></div>
+  </div>
+
+  <!-- Timer -->
+  <div class="timer">⏱️ <span id="timer">10</span></div>
+
+  <!-- Card -->
+  <div class="card">
+    <h2 id="question"></h2>
+    <div id="answers"></div>
+  </div>
+
+  <button class="back-btn" onclick="backToMap()">⬅ رجوع</button>
+</section>
+
+<!-- Sounds -->
+<audio id="correctSound" src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3"></audio>
+<audio id="wrongSound" src="https://assets.mixkit.co/sfx/preview/mixkit-wrong-answer-fail-notification-946.mp3"></audio>
 
 <script src="app.js"></script>
 </body>
