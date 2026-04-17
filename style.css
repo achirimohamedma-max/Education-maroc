@@ -89,15 +89,29 @@ color:white;
 font-size:16px;
 }
 /* توسيط شاشة التمارين */
+/* توسيط بدون تصغير المحتوى */
 #quiz{
 display:none;
 min-height:100vh;
+padding:20px;
+} 
+#question{
+font-size:38px;
+margin-bottom:30px;
+}
+#question{
+font-size:38px;
+margin-bottom:30px;
+}
+/* وسط الشاشة */
+#quizContent{
+max-width:500px;
+margin:auto;
 display:flex;
 flex-direction:column;
-justify-content:center; /* وسط عمودياً */
-align-items:center;     /* وسط أفقياً */
+justify-content:center;
+min-height:80vh;
 }
-
 /* نحدد عرض المحتوى باش يبان منظم */
 #quizContent{
 width:100%;
