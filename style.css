@@ -66,3 +66,8 @@ button {
   font-weight: bold;
   margin-top: 10px;
 }
+#answers button {
+  display: block;
+  margin: 10px auto;
+  width: 200px;
+}
