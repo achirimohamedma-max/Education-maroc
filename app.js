@@ -1,137 +1,97 @@
-// Navigation
-function navigate(pageId) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+const correctSound = new Audio("https://www.soundjay.com/buttons/sounds/button-3.mp3");
+const wrongSound = new Audio("https://www.soundjay.com/buttons/sounds/button-10.mp3");
 
-  const page = document.getElementById(pageId);
-  if (page) page.classList.add('active');
+function launchConfetti() {
+  confetti({ particleCount:120, spread:70, origin:{y:0.6}});
+}
 
-  if (allQuestions[pageId]) {
+function navigate(pageId){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+
+  if(allQuestions[pageId]){
     currentLevel = pageId;
     questions = allQuestions[pageId];
     startQuiz();
   }
 }
 
-// Data (كل مستوى مستقل)
 const allQuestions = {
-  level1: [
-    { q: "2+3=?", answers: [4,5,6], correct: 5 },
-    { q: "5-2=?", answers: [2,3,4], correct: 3 }
-  ],
-  level2: [
-    { q: "9+5=?", answers: [13,14,15], correct: 14 },
-    { q: "12-4=?", answers: [7,8,9], correct: 8 }
-  ],
-  level3: [
-    { q: "6×2=?", answers: [10,12,14], correct: 12 }
-  ],
-  level4: [
-    { q: "52-27=?", answers: [23,25,27], correct: 25 }
-  ],
-  level5: [
-    { q: "123×3=?", answers: [369,360,390], correct: 369 }
-  ],
-  level6: [
-    { q: "123×45=?", answers: [5535,5525,5545], correct: 5535 }
-  ]
+  level1:[{q:"2+2=?",answers:[3,4,5],correct:4}],
+  level2:[{q:"5+5=?",answers:[9,10,11],correct:10}],
+  level3:[{q:"6×2=?",answers:[10,12,14],correct:12}],
+  level4:[{q:"52-27=?",answers:[23,25,27],correct:25}],
+  level5:[{q:"123×3=?",answers:[369,360,390],correct:369}],
+  level6:[{q:"123×45=?",answers:[5535,5525,5545],correct:5535}]
 };
 
-let questions = [];
-let current = 0;
-let score = 0;
-let locked = false;
-let currentLevel = "";
+let questions=[], current=0, score=0, locked=false, currentLevel="";
 
-// Start quiz
-function startQuiz() {
-  current = 0;
-  locked = false;
-
-  let saved = localStorage.getItem("score_" + currentLevel);
-  score = saved ? parseInt(saved) : 0;
-
-  loadQuestion();
+function startQuiz(){
+  current=0; score=0; loadQuestion();
 }
 
-// Load question
-function loadQuestion() {
-  const page = document.querySelector(".page.active");
+function loadQuestion(){
+  let page=document.querySelector(".page.active");
+  let qEl=page.querySelector(".question");
+  let aEl=page.querySelector(".answers");
+  let progress=page.querySelector(".progress-bar");
 
-  const qEl = page.querySelector(".question");
-  const aEl = page.querySelector(".answers");
+  qEl.innerText=questions[current].q;
+  aEl.innerHTML="";
 
-  if (!qEl || !aEl) return;
+  let percent=(current/questions.length)*100;
+  progress.style.width=percent+"%";
 
-  const q = questions[current];
-
-  qEl.innerText = q.q;
-  aEl.innerHTML = "";
-
-  q.answers.forEach(a => {
-    const btn = document.createElement("button");
-    btn.innerText = a;
-    btn.onclick = () => check(a);
+  questions[current].answers.forEach(a=>{
+    let btn=document.createElement("button");
+    btn.innerText=a;
+    btn.onclick=()=>check(a);
     aEl.appendChild(btn);
   });
 }
 
-// Check answer
-function check(answer) {
-  if (locked) return;
-  locked = true;
+function check(answer){
+  if(locked)return;
+  locked=true;
 
-  const page = document.querySelector(".page.active");
+  let page=document.querySelector(".page.active");
+  let result=page.querySelector(".result");
 
-  const result = page.querySelector(".result");
-  const scoreText = page.querySelector(".score");
-
-  if (answer === questions[current].correct) {
-    result.innerText = "✅ صحيح";
-    score += 10;
+  if(answer===questions[current].correct){
+    result.innerText="✅ صحيح";
+    score+=10;
+    correctSound.play();
   } else {
-    result.innerText = "❌ خطأ";
+    result.innerText="❌ خطأ";
+    wrongSound.play();
   }
-
-  localStorage.setItem("score_" + currentLevel, score);
-
-  scoreText.innerText = "النقاط: " + score;
 
   current++;
 
-  setTimeout(() => {
-    locked = false;
-
-    if (current < questions.length) {
-      result.innerText = "";
+  setTimeout(()=>{
+    locked=false;
+    if(current<questions.length){
+      result.innerText="";
       loadQuestion();
     } else {
       showFinalResult();
     }
-  }, 1000);
+  },1000);
 }
 
-// Final result
-function showFinalResult() {
-  const page = document.querySelector(".page.active");
+function showFinalResult(){
+  let page=document.querySelector(".page.active");
+  let starsEl=page.querySelector(".stars");
+  let result=page.querySelector(".result");
 
-  const qEl = page.querySelector(".question");
-  const aEl = page.querySelector(".answers");
-  const result = page.querySelector(".result");
-  const scoreText = page.querySelector(".score");
+  let stars="";
+  if(score>=8){stars="⭐⭐⭐";launchConfetti();}
+  else if(score>=5){stars="⭐⭐";}
+  else{stars="⭐";}
 
-  qEl.innerText = "🎉 انتهيت!";
-  aEl.innerHTML = "";
-
-  if (score >= questions.length * 8) {
-    result.innerText = "🏆 ممتاز!";
-  } else if (score >= questions.length * 5) {
-    result.innerText = "👍 مزيان!";
-  } else {
-    result.innerText = "😅 حاول مرة أخرى";
-  }
-
-  scoreText.innerText = "النقاط: " + score;
+  starsEl.innerText=stars;
+  result.innerText="🎉 انتهيت!";
 }
 
-// Start
-window.onload = () => navigate("home"); 
+window.onload=()=>navigate("home");
