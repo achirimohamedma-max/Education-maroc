@@ -3,78 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مدرستي عن بعد</title>
+<title>مدرستي</title>
+
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- 🔷 HEADER -->
-<nav class="topbar">
+<!-- الصفحة الرئيسية -->
+<section id="map">
 
-  <div class="right">
-    <h3>وزارة التربية الوطنية والتعليم الأولي والرياضة</h3>
-  </div>
+<h2>🎯 اختر المستوى</h2>
 
-  <div class="center">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Coat_of_arms_of_Morocco.png" class="coat">
-  </div>
-
-  <div class="left">
-    👨‍🏫 الأستاذ محمد العشيري
-  </div>
-
-</nav>
-
-<!-- 🔷 الصفحة الرئيسية -->
-<section class="home">
-
-  <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" class="avatar">
-
-  <h1>مدرستي عن بعد</h1>
-
-  <p>منصة رقمية لدعم التعليم الابتدائي</p>
-
-  <button onclick="goLevels()" class="start-btn">
-    🚀 ابدأ التعلم
-  </button>
+<div class="levels">
+<button onclick="goLevel(1)">الأول ابتدائي</button>
+<button onclick="goLevel(2)">الثاني ابتدائي</button>
+<button onclick="goLevel(3)">الثالث ابتدائي</button>
+<button onclick="goLevel(4)">الرابع ابتدائي</button>
+<button onclick="goLevel(5)">الخامس ابتدائي</button>
+<button onclick="goLevel(6)">السادس ابتدائي</button>
+</div>
 
 </section>
 
-<!-- 🔷 المستويات -->
-<section id="levels" class="levels">
+<!-- صفحة التمارين -->
+<section id="quiz" style="display:none;">
 
-  <h2>🎯 اختر المستوى</h2>
 <h2 id="question"></h2>
 <div id="answers"></div>
-  <div class="grid">
 
-    <div class="card c1" onclick="startLevel(1)">الأول ابتدائي</div>
-    <div class="card c2" onclick="startLevel(2)">الثاني ابتدائي</div>
-    <div class="card c3" onclick="startLevel(3)">الثالث ابتدائي</div>
-    <div class="card c4" onclick="startLevel(4)">الرابع ابتدائي</div>
-    <div class="card c5" onclick="startLevel(5)">الخامس ابتدائي</div>
-    <div class="card c6" onclick="startLevel(6)">السادس ابتدائي</div>
-
-  </div>
+<div class="nav-buttons">
+<button onclick="backToMap()">⬅ رجوع</button>
+<button onclick="goHome()">🏠 الرئيسية</button>
+</div>
 
 </section>
 
-<script>
-function goLevels(){
-  document.querySelector(".home").style.display="none";
-  document.querySelector("#levels").style.display="block";
-}
-
-function startLevel(level){
-  alert("تم اختيار المستوى " + level);
-}
-</script>
+<script src="app.js"></script>
 
 </body>
 </html>
-<div class="hud">
-  ⏱️ الوقت: <span id="timer">10</span> |
-  ⭐ XP: <span id="xp">0</span> |
-  🎮 المستوى: <span id="playerLevel">1</span>
-</div>
