@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(135deg, #1A3A6B, #2B7EC1);
+  color: white;
+  text-align: center;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background: rgba(0,0,0,0.2);
+}
+
+.navbar button {
+  margin: 5px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Pages */
+.page {
+  display: none;
+  padding: 40px;
+  animation: fade 0.4s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+button {
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: white;
+  color: #1A3A6B;
+  font-weight: bold;
+}
+
+.primary {
+  background: gold;
+}
