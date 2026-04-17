@@ -283,14 +283,27 @@ showResult();
 
 function showResult(){
 
-let total=levels[currentLevel].length;
+let total = levels[currentLevel].length;
 
-document.getElementById("quiz").innerHTML=`
+let message =
+score >= 8 ? "🔥 ممتاز جدا!" :
+score >=5 ? "👍 عمل جيد!" :
+"💪 حاول مرة أخرى";
+
+document.getElementById("quiz").innerHTML = `
+<div class="result">
+
 <h2>🏁 انتهى المستوى</h2>
-<h3>⭐ النتيجة: ${score} / ${total}</h3>
-<p>${score>=8?"🔥 ممتاز":score>=5?"👍 جيد":"💪 حاول مرة أخرى"}</p>
-<button onclick="goHome()">🏠 الرئيسية</button>
+
+<div class="score">${score} / ${total}</div>
+
+<div class="message">${message}</div>
+
+<button onclick="goHome()">🏠 الرجوع للرئيسية</button>
+
+</div>
 `;
+
 }
 
 function goHome(){
