@@ -1,71 +1,74 @@
-// Questions بسيطة
 const levels = {
 1:[
-{q:"2+2=?",a:[3,4,5],correct:4},
-{q:"3+1=?",a:[3,4,5],correct:4}
+{q:"2+2=?",a:[3,4,5]},
+{q:"3+1=?",a:[3,4,5]}
+],
+2:[
+{q:"5+5=?",a:[9,10,11]},
+{q:"6+3=?",a:[8,9,10]}
 ]
 };
 
 let current = 0;
 let currentLevel = 1;
 
-// 🔥 الدخول للمستوى
+// دخول المستوى
 function goLevel(level){
-  startLevel(level);
+startLevel(level);
 }
 
-// 🚀 بداية المستوى
+// بداية المستوى
 function startLevel(level){
-  currentLevel = level;
-  current = 0;
+currentLevel = level;
+current = 0;
 
-  document.getElementById("map").style.display="none";
-  document.getElementById("quiz").style.display="block";
+document.getElementById("map").style.display="none";
+document.getElementById("quiz").style.display="block";
 
-  showQuestion();
+showQuestion();
 }
 
-// 📌 عرض السؤال
+// عرض السؤال
 function showQuestion(){
-  let q = levels[currentLevel][current];
+let q = levels[currentLevel][current];
 
-  document.getElementById("question").innerText = q.q;
+document.getElementById("question").innerText = q.q;
 
-  let answers = document.getElementById("answers");
-  answers.innerHTML = "";
+let answers = document.getElementById("answers");
+answers.innerHTML = "";
 
-  q.a.forEach(ans=>{
-    let btn = document.createElement("button");
-    btn.className = "answer-btn";
-    btn.innerText = ans;
+q.a.forEach(ans=>{
+let btn = document.createElement("button");
+btn.className = "answer-btn";
+btn.innerText = ans;
 
-    btn.onclick = ()=>{
-      next();
-    };
+btn.onclick = ()=>{
+next();
+};
 
-    answers.appendChild(btn);
-  });
+answers.appendChild(btn);
+});
 }
 
-// ➡️ السؤال التالي
+// التالي
 function next(){
-  current++;
+current++;
 
-  if(current < levels[currentLevel].length){
-    showQuestion();
-  }else{
-    alert("🏁 انتهى المستوى");
-    backToMap();
-  }
+if(current < levels[currentLevel].length){
+showQuestion();
+}else{
+alert("🏁 انتهى المستوى");
+backToMap();
+}
 }
 
-// 🔙 رجوع
+// رجوع
 function backToMap(){
-  document.getElementById("map").style.display="block";
-  document.getElementById("quiz").style.display="none";
+document.getElementById("map").style.display="block";
+document.getElementById("quiz").style.display="none";
 }
 
-// 🏠 الرئيسية
+// الرئيسية
 function goHome(){
-  backToMap();
+backToMap();
 }
