@@ -158,3 +158,57 @@ background:#22c55e;
 color:white;
 cursor:pointer;
 }
+/* === تحسين التوسيط بدون تخريب === */
+#quiz{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* container كيتكبر */
+#quizContent{
+width:100%;
+max-width:700px;
+margin:auto;
+padding:10px;
+}
+
+/* grid أكبر */
+#answers{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+margin-top:30px;
+}
+
+/* مربعات كبار بحال Duolingo */
+.answer{
+height:110px;
+font-size:26px;
+border-radius:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-weight:bold;
+transition:0.2s;
+}
+
+/* effect ديال الضغط */
+.answer:active{
+transform:scale(0.95);
+}
+
+/* تكبير السؤال */
+#question{
+font-size:42px;
+margin-bottom:20px;
+}
+
+/* موبايل */
+@media (max-width:600px){
+.answer{
+height:120px;
+font-size:28px;
+}
+}
