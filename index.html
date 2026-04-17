@@ -229,8 +229,10 @@ showQuestion();
 function showQuestion(){
 
 let q=levels[currentLevel][current];
-document.getElementById("question").innerText=q.q;
+let total = levels[currentLevel].length;
 
+document.getElementById("question").innerText =
+"السؤال " + (current + 1) + " / " + total + " : " + q.q;
 let answers=document.getElementById("answers");
 answers.innerHTML="";
 
