@@ -103,3 +103,44 @@ align-items:center;     /* وسط أفقياً */
 width:100%;
 max-width:400px;
 }
+/* شاشة النتيجة */
+.result{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+}
+
+/* العنوان */
+.result h2{
+font-size:40px;
+margin-bottom:20px;
+}
+
+/* النقطة */
+.result .score{
+font-size:50px;
+font-weight:bold;
+color:#facc15;
+margin:20px 0;
+}
+
+/* الرسالة */
+.result .message{
+font-size:22px;
+margin-bottom:20px;
+}
+
+/* زر */
+.result button{
+padding:15px 30px;
+font-size:18px;
+border:none;
+border-radius:20px;
+background:#22c55e;
+color:white;
+cursor:pointer;
+}
