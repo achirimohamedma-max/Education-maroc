@@ -1,3 +1,4 @@
+let unlockedLevels = JSON.parse(localStorage.getItem("unlockedLevels")) || ["level1"];
 // Navigation
 function navigate(pageId) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
