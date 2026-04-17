@@ -477,3 +477,20 @@ max-width:45%;
 text-align:left;
 max-width:45%;
 }
+/* خط أندلسي غليظ */
+body{
+font-family: 'Amiri', serif !important;
+font-weight:700;
+}
+
+/* تأكيد على العناوين */
+h1, h2, h3, h4{
+font-weight:700;
+letter-spacing:1px;
+}
+
+/* الأزرار */
+button{
+font-family: 'Amiri', serif !important;
+font-weight:700;
+}
