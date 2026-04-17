@@ -52,19 +52,50 @@ function loadQuestion() {
     aEl.appendChild(btn);
   });
 }
+let locked = false;
 
 function check(answer) {
+  if (locked) return;
+  locked = true;
+
   const result = document.getElementById("result");
 
-  if (!result) return;
-
   if (answer === questions[current].correct) {
-    result.innerText = "✅ صحيح";
+    result.innerText = "✅ صحيح!";
+    result.style.color = "lightgreen";
+    score += 10;
   } else {
     result.innerText = "❌ خطأ";
+    result.style.color = "red";
   }
-}
 
+  current++;
+
+  setTimeout(() => {
+    locked = false;
+
+    if (current < questions.length) {
+      result.innerText = "";
+      loadQuestion();
+    } else {
+      showFinalResult();
+    }
+  }, 1000);
+}
+function showFinalResult() {
+  const qEl = document.getElementById("question");
+  const aEl = document.getElementById("answers");
+  const result = document.getElementById("result");
+  const scoreText = document.getElementById("score");
+
+  if (!qEl || !aEl) return;
+
+  qEl.innerText = "🎉 انتهيت!";
+  aEl.innerHTML = "";
+
+  result.innerText = "النتيجة النهائية:";
+  scoreText.innerText = "النقاط: " + score;
+}
 // Load
 window.onload = function () {
   navigate("home");
