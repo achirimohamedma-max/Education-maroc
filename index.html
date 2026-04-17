@@ -15,29 +15,31 @@
 
 <!-- Header -->
 <nav class="topbar">
+  <div class="right">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Ministry_of_National_Education_Morocco_logo.png" class="logo">
+    <div>
+      <h3>وزارة التربية الوطنية</h3>
+      <small>والتعليم الأولي والرياضة</small>
+    </div>
+  </div>
 
-<div class="right">
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Ministry_of_National_Education_Morocco_logo.png" class="logo">
-<div>
-<h3>وزارة التربية الوطنية</h3>
-<small>والتعليم الأولي والرياضة</small>
-</div>
-</div>
-
-<div class="left">
-👨‍🏫 الأستاذ محمد العشيري
-</div>
-
+  <div class="left">
+    👨‍🏫 الأستاذ محمد العشيري
+  </div>
 </nav>
 
 <!-- Home -->
 <section id="home" class="page active home-container">
-<div class="hero">
-<img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" class="hero-img">
-<h1>مدرستي عن بعد</h1>
-<p>منصة رقمية لدعم التعلّم الابتدائي</p>
-<button id="startBtn" class="start-btn">🚀 ابدأ التعلم</button>
-</div>
+  <div class="hero">
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" class="hero-img">
+    <h1>مدرستي عن بعد</h1>
+    <p>منصة رقمية لدعم التعلّم الابتدائي</p>
+
+    <button id="startBtn" class="start-btn">🚀 ابدأ التعلم</button>
+    <button onclick="navigate('ranking')">🏆 الترتيب</button>
+
+    <p id="playerInfo"></p>
+  </div>
 </section>
 
 <!-- Levels -->
@@ -45,44 +47,26 @@
 <h2>🎯 اختر المستوى</h2>
 
 <div class="levels-grid">
-
-<div class="level-card" onclick="navigate('level1')">
-الأول ابتدائي
-<div class="badge" id="badge-level1">🔒</div>
-</div>
-
-<div class="level-card" onclick="navigate('level2')">
-الثاني ابتدائي
-<div class="badge" id="badge-level2">🔒</div>
-</div>
-
-<div class="level-card" onclick="navigate('level3')">
-الثالث ابتدائي
-<div class="badge" id="badge-level3">🔒</div>
-</div>
-
-<div class="level-card" onclick="navigate('level4')">
-الرابع ابتدائي
-<div class="badge" id="badge-level4">🔒</div>
-</div>
-
-<div class="level-card" onclick="navigate('level5')">
-الخامس ابتدائي
-<div class="badge" id="badge-level5">🔒</div>
-</div>
-
-<div class="level-card" onclick="navigate('level6')">
-السادس ابتدائي
-<div class="badge" id="badge-level6">🔒</div>
-</div>
-
+<div class="level-card" onclick="navigate('level1')">الأول<div class="badge" id="badge-level1">🔒</div></div>
+<div class="level-card" onclick="navigate('level2')">الثاني<div class="badge" id="badge-level2">🔒</div></div>
+<div class="level-card" onclick="navigate('level3')">الثالث<div class="badge" id="badge-level3">🔒</div></div>
+<div class="level-card" onclick="navigate('level4')">الرابع<div class="badge" id="badge-level4">🔒</div></div>
+<div class="level-card" onclick="navigate('level5')">الخامس<div class="badge" id="badge-level5">🔒</div></div>
+<div class="level-card" onclick="navigate('level6')">السادس<div class="badge" id="badge-level6">🔒</div></div>
 </div>
 </section>
 
-<!-- Quiz Pages -->
+<!-- Ranking -->
+<section id="ranking" class="page">
+<h2>🏆 ترتيب التلاميذ</h2>
+<div id="rankingList"></div>
+<button onclick="navigate('home')">⬅ رجوع</button>
+</section>
+
+<!-- Quiz (نفسه لكل مستوى) -->
 <section id="level1" class="page"><div class="quiz">
 <div class="quiz-nav">
-<button onclick="navigate('levels')">⬅ رجوع</button>
+<button onclick="navigate('levels')">⬅</button>
 <button onclick="navigate('home')">🏠</button>
 </div>
 <p class="timer"></p>
@@ -94,12 +78,11 @@
 <div class="stars"></div>
 </div></section>
 
-<!-- كرر نفس الشي لباقي المستويات -->
-<section id="level2" class="page"><div class="quiz">...</div></section>
-<section id="level3" class="page"><div class="quiz">...</div></section>
-<section id="level4" class="page"><div class="quiz">...</div></section>
-<section id="level5" class="page"><div class="quiz">...</div></section>
-<section id="level6" class="page"><div class="quiz">...</div></section>
+<section id="level2" class="page"><div class="quiz">نفس الكود</div></section>
+<section id="level3" class="page"><div class="quiz">نفس الكود</div></section>
+<section id="level4" class="page"><div class="quiz">نفس الكود</div></section>
+<section id="level5" class="page"><div class="quiz">نفس الكود</div></section>
+<section id="level6" class="page"><div class="quiz">نفس الكود</div></section>
 
 <script src="app.js"></script>
 </body>
