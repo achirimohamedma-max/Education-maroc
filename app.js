@@ -1,4 +1,3 @@
-alert("JS خدام");
 // ===== Navigation =====
 function navigate(pageId) {
   document.querySelectorAll('.page').forEach(p => {
@@ -12,7 +11,6 @@ function navigate(pageId) {
 
   window.location.hash = pageId;
 
-  // تشغيل quiz حسب المستوى
   if (allQuestions[pageId]) {
     questions = allQuestions[pageId];
     startQuiz();
@@ -25,7 +23,6 @@ const allQuestions = {
     { q: "2 + 2 = ؟", answers: [2, 3, 4], correct: 4 },
     { q: "1 + 1 = ؟", answers: [1, 2, 3], correct: 2 }
   ],
-
   level2: [
     { q: "5 + 3 = ؟", answers: [7, 8, 9], correct: 8 },
     { q: "6 - 2 = ؟", answers: [3, 4, 5], correct: 4 }
@@ -71,4 +68,48 @@ function check(answer) {
   const scoreText = document.getElementById("score");
 
   if (answer === questions[current].correct) {
-    result 
+    result.innerText = "✅ صحيح!";
+    result.style.color = "lightgreen";
+    score += 10;
+  } else {
+    result.innerText = "❌ خطأ";
+    result.style.color = "red";
+  }
+
+  if (scoreText) {
+    scoreText.innerText = "النقاط: " + score;
+  }
+
+  current++;
+
+  setTimeout(() => {
+    locked = false;
+
+    if (current < questions.length) {
+      result.innerText = "";
+      loadQuestion();
+    } else {
+      showFinalResult();
+    }
+  }, 1000);
+}
+
+function showFinalResult() {
+  const qEl = document.getElementById("question");
+  const aEl = document.getElementById("answers");
+  const result = document.getElementById("result");
+  const scoreText = document.getElementById("score");
+
+  if (!qEl || !aEl) return;
+
+  qEl.innerText = "🎉 انتهيت!";
+  aEl.innerHTML = "";
+
+  result.innerText = "النتيجة النهائية:";
+  scoreText.innerText = "النقاط: " + score;
+}
+
+// ===== Load =====
+window.onload = function () {
+  navigate("home");
+}; 
