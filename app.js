@@ -1,159 +1,101 @@
-// 🎮 Player
-let player = {
-xp: 0,
-level: 1
-};
-
-// 🏆 Ranking
-let ranking = JSON.parse(localStorage.getItem("ranking")) || [];
-
-// 📊 Variables
-let current = 0;
-let score = 0;
-let currentLevel = 1;
-let timer;
-let timeLeft = 10;
-
-// 📚 Questions
-const levels = {
-1:[
-{q:"2+2=?",a:[3,4,5],correct:4},
-{q:"3+2=?",a:[4,5,6],correct:5},
-{q:"5-2=?",a:[2,3,4],correct:3},
-{q:"6-1=?",a:[4,5,6],correct:5},
-{q:"4+3=?",a:[6,7,8],correct:7},
-{q:"7-3=?",a:[3,4,5],correct:4},
-{q:"1+6=?",a:[6,7,8],correct:7},
-{q:"9-4=?",a:[4,5,6],correct:5},
-{q:"2+5=?",a:[6,7,8],correct:7},
-{q:"8-2=?",a:[5,6,7],correct:6}
-]
-};
-
-// 🚀 Start
-startLevel(1);
-
-function startLevel(level){
-currentLevel=level;
-current=0;
-score=0;
-player.xp=0;
-showQuestion();
+body{
+  margin:0;
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg,#1e3c72,#2a5298);
+  color:white;
 }
 
-// ⏱️ Timer
-function startTimer(){
-clearInterval(timer);
-timeLeft=10;
-
-document.getElementById("timer").innerText=timeLeft;
-
-timer=setInterval(()=>{
-timeLeft--;
-document.getElementById("timer").innerText=timeLeft;
-
-if(timeLeft<=0){
-clearInterval(timer);
-next();
-}
-},1000);
+/* HEADER */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 15px;
+  background:rgba(0,0,0,0.2);
 }
 
-// 📌 Show question
-function showQuestion(){
-startTimer();
-
-let q=levels[currentLevel][current];
-document.getElementById("question").innerText=q.q;
-
-let answers=document.getElementById("answers");
-answers.innerHTML="";
-
-q.a.forEach(ans=>{
-let btn=document.createElement("button");
-btn.className="answer-btn";
-btn.innerText=ans;
-btn.onclick=()=>checkAnswer(ans);
-answers.appendChild(btn);
-});
+.right h3{
+  font-size:14px;
+  margin:0;
 }
 
-// ✅ Check
-function checkAnswer(ans){
-clearInterval(timer);
-
-let correct=levels[currentLevel][current].correct;
-
-if(ans===correct){
-score++;
-player.xp+=10;
-
-document.getElementById("correctSound").play();
-
-confetti({
-particleCount:100,
-spread:70
-});
-
-}else{
-player.xp+=2;
-document.getElementById("wrongSound").play();
+.left{
+  font-size:14px;
 }
 
-updatePlayer();
-next();
+.center{
+  text-align:center;
 }
 
-// 🎮 Level system
-function updatePlayer(){
-document.getElementById("xp").innerText=player.xp;
-
-if(player.xp>=50){
-player.level++;
-document.getElementById("playerLevel").innerText=player.level;
-}
+.coat{
+  width:50px;
 }
 
-// ➡️ Next
-function next(){
-current++;
-
-if(current<10){
-showQuestion();
-}else{
-endGame();
-}
+/* الصفحة الرئيسية */
+.home{
+  text-align:center;
+  margin-top:50px;
 }
 
-// 🏅 Badge
-function getBadge(level){
-const badges={
-1:"🥉 مبتدئ",
-2:"🥈 متعلم",
-3:"🥇 متفوق",
-4:"🏅 محترف",
-5:"🏆 بطل",
-6:"👑 أسطورة"
-};
-return badges[level];
+.avatar{
+  width:100px;
 }
 
-// 🏁 End
-function endGame(){
-let name=prompt("اسمك؟");
-
-ranking.push({
-name:name||"لاعب",
-score:score
-});
-
-ranking.sort((a,b)=>b.score-a.score);
-
-localStorage.setItem("ranking",JSON.stringify(ranking.slice(0,5)));
-
-alert(
-"🎉 انتهيت!\n" +
-"النقاط: "+score+"/10\n" +
-"🏅 "+getBadge(currentLevel)
-);
+h1{
+  font-size:32px;
+  margin:10px 0;
 }
+
+p{
+  opacity:0.9;
+}
+
+/* زر */
+.start-btn{
+  background:#FFD700;
+  border:none;
+  padding:15px 30px;
+  font-size:18px;
+  border-radius:12px;
+  cursor:pointer;
+  margin-top:20px;
+  transition:0.3s;
+}
+
+.start-btn:hover{
+  transform:scale(1.1);
+}
+
+/* المستويات */
+.levels{
+  display:none;
+  text-align:center;
+  margin-top:40px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  padding:20px;
+}
+
+.card{
+  padding:20px;
+  border-radius:15px;
+  cursor:pointer;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:scale(1.05);
+}
+
+/* ألوان */
+.c1{background:#4CAF50;}
+.c2{background:#2196F3;}
+.c3{background:#9C27B0;}
+.c4{background:#FF9800;}
+.c5{background:#E91E63;}
+.c6{background:#00BCD4;}
