@@ -1,22 +1,22 @@
 const correctSound = new Audio("https://www.soundjay.com/buttons/sounds/button-3.mp3");
 const wrongSound = new Audio("https://www.soundjay.com/buttons/sounds/button-10.mp3");
 
-function launchConfetti() {
-  confetti({ particleCount:120, spread:70, origin:{y:0.6}});
+function launchConfetti(){
+  confetti({particleCount:120,spread:70,origin:{y:0.6}});
 }
 
-function navigate(pageId){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById(pageId).classList.add('active');
+function navigate(id){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
 
-  if(allQuestions[pageId]){
-    currentLevel = pageId;
-    questions = allQuestions[pageId];
+  if(allQuestions[id]){
+    currentLevel=id;
+    questions=allQuestions[id];
     startQuiz();
   }
 }
 
-const allQuestions = {
+const allQuestions={
   level1:[{q:"2+2=?",answers:[3,4,5],correct:4}],
   level2:[{q:"5+5=?",answers:[9,10,11],correct:10}],
   level3:[{q:"6×2=?",answers:[10,12,14],correct:12}],
@@ -25,10 +25,10 @@ const allQuestions = {
   level6:[{q:"123×45=?",answers:[5535,5525,5545],correct:5535}]
 };
 
-let questions=[], current=0, score=0, locked=false, currentLevel="";
+let questions=[],current=0,score=0,currentLevel="";
 
 function startQuiz(){
-  current=0; score=0; loadQuestion();
+  current=0;score=0;loadQuestion();
 }
 
 function loadQuestion(){
@@ -40,8 +40,7 @@ function loadQuestion(){
   qEl.innerText=questions[current].q;
   aEl.innerHTML="";
 
-  let percent=(current/questions.length)*100;
-  progress.style.width=percent+"%";
+  progress.style.width=(current/questions.length*100)+"%";
 
   questions[current].answers.forEach(a=>{
     let btn=document.createElement("button");
@@ -51,18 +50,15 @@ function loadQuestion(){
   });
 }
 
-function check(answer){
-  if(locked)return;
-  locked=true;
-
+function check(ans){
   let page=document.querySelector(".page.active");
   let result=page.querySelector(".result");
 
-  if(answer===questions[current].correct){
+  if(ans===questions[current].correct){
     result.innerText="✅ صحيح";
     score+=10;
     correctSound.play();
-  } else {
+  }else{
     result.innerText="❌ خطأ";
     wrongSound.play();
   }
@@ -70,11 +66,10 @@ function check(answer){
   current++;
 
   setTimeout(()=>{
-    locked=false;
     if(current<questions.length){
       result.innerText="";
       loadQuestion();
-    } else {
+    }else{
       showFinalResult();
     }
   },1000);
@@ -83,7 +78,6 @@ function check(answer){
 function showFinalResult(){
   let page=document.querySelector(".page.active");
   let starsEl=page.querySelector(".stars");
-  let result=page.querySelector(".result");
 
   let stars="";
   if(score>=8){stars="⭐⭐⭐";launchConfetti();}
@@ -91,7 +85,22 @@ function showFinalResult(){
   else{stars="⭐";}
 
   starsEl.innerText=stars;
-  result.innerText="🎉 انتهيت!";
+
+  localStorage.setItem("done_"+currentLevel,true);
+  updateBadges();
 }
 
-window.onload=()=>navigate("home");
+function updateBadges(){
+  Object.keys(allQuestions).forEach(l=>{
+    let b=document.getElementById("badge-"+l);
+    if(b){
+      b.innerText=localStorage.getItem("done_"+l)?"🏆":"🔒";
+    }
+  });
+}
+
+window.onload=function(){
+  navigate("home");
+  document.getElementById("startBtn").onclick=()=>navigate("levels");
+  updateBadges();
+};
