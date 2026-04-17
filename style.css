@@ -8,31 +8,20 @@ margin:0;
 .page{display:none;padding:20px;text-align:center;}
 .page.active{display:block;}
 
-/* Header */
 .topbar{
-display:flex;
-justify-content:space-between;
-padding:10px;
-background:rgba(255,255,255,0.05);
+display:flex;justify-content:space-between;
+padding:10px;background:rgba(255,255,255,0.05);
 }
 
 .right{display:flex;gap:10px;align-items:center;}
 .logo{width:40px;}
 .left{font-size:14px;}
 
-/* Home */
 .hero-img{width:100px;background:white;border-radius:50%;}
-.start-btn{background:gold;padding:15px;border-radius:20px}
+.start-btn{background:gold;padding:15px;border-radius:20px;margin:10px}
 
-/* Levels */
 .levels-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-
-.level-card{
-padding:25px;
-border-radius:20px;
-font-size:18px;
-position:relative;
-}
+.level-card{padding:25px;border-radius:20px;font-size:18px;position:relative}
 
 .level-card:nth-child(1){background:#22c55e;}
 .level-card:nth-child(2){background:#3b82f6;}
@@ -43,23 +32,24 @@ position:relative;
 
 .badge{position:absolute;bottom:10px;left:10px}
 
-/* Quiz */
 .quiz{background:rgba(255,255,255,0.1);padding:20px;border-radius:20px}
 
 .question{font-size:26px}
+
 .answers button{
-padding:18px;
-margin:10px;
-border-radius:15px;
-font-size:18px;
-background:white;
-color:black;
+padding:18px;margin:10px;border-radius:15px;
+font-size:18px;background:white;color:black;width:100%;
 }
 
 .progress{height:10px;background:#444}
 .progress-bar{height:100%;background:#22c55e}
 
 .timer{font-size:18px}
-
 .quiz-nav{display:flex;justify-content:space-between}
+
 .stars{font-size:25px;color:gold}
+
+.rank-item{
+background:rgba(255,255,255,0.1);
+padding:10px;margin:10px;border-radius:10px;
+}
