@@ -367,3 +367,42 @@ align-items:center;
 font-weight:bold;
 width:100%;
 }
+/* FORCE CENTER FINAL 🔥🔥 */
+#quiz{
+position:fixed !important;
+top:0;
+left:0;
+width:100% !important;
+height:100vh !important;
+display:flex !important;
+justify-content:center !important;
+align-items:center !important;
+}
+
+/* box وسط الشاشة */
+.quiz-box{
+width:90% !important;
+max-width:420px !important;
+margin:auto !important;
+text-align:center !important;
+}
+
+/* grid */
+#answers{
+display:grid !important;
+grid-template-columns:1fr 1fr !important;
+gap:15px !important;
+width:100% !important;
+}
+
+/* المربعات كبار */
+.answer{
+width:100% !important;
+height:100px !important;
+font-size:26px !important;
+border-radius:20px !important;
+display:flex !important;
+justify-content:center !important;
+align-items:center !important;
+font-weight:bold !important;
+}
