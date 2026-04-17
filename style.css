@@ -286,3 +286,44 @@ display:flex !important;
 justify-content:center !important;
 align-items:center !important;
 }
+/* CENTER FIX 🔥 */
+#quiz{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* هذا هو السر */
+#quizContent{
+width:90%;
+max-width:500px;
+margin:auto;
+}
+
+/* grid مضبوط */
+#answers{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+width:100%;
+}
+
+/* مربعات كبار */
+.answer{
+width:100%;
+height:110px;
+font-size:26px;
+border-radius:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-weight:bold;
+}
+
+/* السؤال */
+#question{
+text-align:center;
+font-size:38px;
+margin-bottom:20px;
+}
