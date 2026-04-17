@@ -442,3 +442,38 @@ align-items:center;
 font-weight:bold;
 width:100%;
 }
+/* HEADER NEW STYLE 🔥 */
+.header{
+background:linear-gradient(135deg,#e0f2fe,#bae6fd); /* لون فاتح عصري */
+color:#0f172a;
+padding:12px 15px;
+font-weight:bold;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:2px solid rgba(0,0,0,0.1);
+}
+
+/* النصوص */
+.header .left,
+.header .right{
+font-size:14px;
+line-height:1.4;
+}
+
+/* الشعار */
+.header .center img{
+width:45px;
+filter:drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+/* تحسين الرؤية */
+.header .right{
+text-align:right;
+max-width:45%;
+}
+
+.header .left{
+text-align:left;
+max-width:45%;
+}
