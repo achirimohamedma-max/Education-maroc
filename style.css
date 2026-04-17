@@ -53,3 +53,33 @@ font-size:18px;background:white;color:black;width:100%;
 background:rgba(255,255,255,0.1);
 padding:10px;margin:10px;border-radius:10px;
 }
+/* جهة الوزارة */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: right;
+}
+
+/* النص الرئيسي */
+.right h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.4;
+  white-space: nowrap; /* يمنع التكسير */
+}
+
+/* السطر الثاني */
+.right small {
+  font-size: 12px;
+  opacity: 0.8;
+  display: block;
+  margin-top: 2px;
+}
+
+/* الشعار */
+.logo {
+  width: 42px;
+  height: auto;
+}
