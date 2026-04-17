@@ -1,40 +1,86 @@
 body{
+margin:0;
 font-family:Arial;
-text-align:center;
-background:#1e3c72;
+background:linear-gradient(135deg,#1e3c72,#2a5298);
 color:white;
+text-align:center;
+}
+
+/* Header */
+.header{
+padding:20px;
 }
 
 /* Levels */
-.levels button{
-display:block;
-width:80%;
-margin:10px auto;
-padding:15px;
+.levels{
+display:flex;
+flex-direction:column;
+gap:15px;
+padding:20px;
+}
+
+.level-btn{
+padding:20px;
 border:none;
-border-radius:15px;
+border-radius:20px;
 font-size:18px;
-background:#22c55e;
+font-weight:bold;
 color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+.level-btn:hover{
+transform:scale(1.05);
+}
+
+/* Colors */
+.lvl1{background:#22c55e;}
+.lvl2{background:#3b82f6;}
+.lvl3{background:#a855f7;}
+.lvl4{background:#f97316;}
+.lvl5{background:#ef4444;}
+.lvl6{background:#0f172a;}
+
+/* Quiz */
+.quiz-card{
+background:#1e293b;
+margin:20px;
+padding:20px;
+border-radius:20px;
+}
+
+/* Question */
+#question{
+font-size:26px;
+margin-bottom:20px;
 }
 
 /* Answers */
 .answer-btn{
 display:block;
-width:80%;
+width:90%;
 margin:10px auto;
 padding:15px;
 border:none;
-border-radius:10px;
+border-radius:15px;
+font-size:18px;
 background:white;
 color:black;
+font-weight:bold;
+transition:0.3s;
+}
+
+.answer-btn:hover{
+background:#22c55e;
+color:white;
 }
 
 /* Navigation */
 .nav-buttons{
 display:flex;
 justify-content:space-between;
-margin:20px;
+margin-top:20px;
 }
 
 .nav-buttons button{
