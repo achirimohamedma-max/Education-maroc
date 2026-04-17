@@ -19,43 +19,32 @@ const questions = [
   }
 ];
 
-function loadQuestion() {
-  const q = questions[current];
-
-  document.getElementById("question").innerText = q.q;
-
-  const answersDiv = document.getElementById("answers");
-  answersDiv.innerHTML = "";
-
-  q.answers.forEach(a => {
-    const btn = document.createElement("button");
-    btn.innerText = a;
-    btn.onclick = () => check(a);
-    answersDiv.appendChild(btn);
+// 🔷 Navigation (مهم)
+function navigate(pageId) {
+  document.querySelectorAll('.page').forEach(p => {
+    p.classList.remove('active');
   });
-}
 
-function check(answer) {
-  const result = document.getElementById("result");
-
-  if (answer === questions[current].correct) {
-    result.innerText = "✅ صحيح!";
-    score += 10;
-  } else {
-    result.innerText = "❌ خطأ";
+  const page = document.getElementById(pageId);
+  if (page) {
+    page.classList.add('active');
   }
 
-  document.getElementById("score").innerText = "النقاط: " + score;
+  window.location.hash = pageId;
 
-  current++;
-
-  if (current < questions.length) {
-    setTimeout(loadQuestion, 1000);
-  } else {
-    document.getElementById("question").innerText = "🎉 انتهيت!";
-    document.getElementById("answers").innerHTML = "";
+  // نشغل quiz غير فـ level1
+  if (pageId === "level1") {
+    startQuiz();
   }
 }
 
-// أول تشغيل
-window.addEventListener("load", loadQuestion);
+// 🔷 Quiz
+function startQuiz() {
+  current = 0;
+  score = 0;
+  loadQuestion();
+}
+
+function loadQuestion() {
+  const questionEl = document.getElementById("question");
+  const
