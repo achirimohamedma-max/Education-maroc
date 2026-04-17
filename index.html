@@ -3,54 +3,170 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مدرستي</title>
+<title>مدرستي عن بعد</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+
+/* BODY */
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(135deg,#1e3c72,#2a5298);
+color:white;
+text-align:center;
+}
+
+/* NAVBAR */
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px;
+background:#1e293b;
+}
+
+.nav-left button{
+margin:5px;
+padding:8px 15px;
+border:none;
+border-radius:20px;
+background:#334155;
+color:white;
+}
+
+.nav-left .active{
+background:#facc15;
+color:black;
+}
+
+.nav-right{
+font-weight:bold;
+}
+
+/* HERO */
+.hero{
+padding:20px;
+}
+
+/* MINISTRY BOX */
+.ministry{
+background:rgba(255,255,255,0.1);
+padding:10px;
+border-radius:20px;
+margin-bottom:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+font-size:14px;
+}
+
+/* LOGO الوزارة */
+.logo{
+width:45px;
+}
+
+/* صورة الولد */
+.avatar{
+width:120px;
+border-radius:50%;
+background:white;
+padding:10px;
+margin-bottom:10px;
+}
+
+/* TEXT */
+h1{
+font-size:32px;
+margin:10px;
+}
+
+.subtitle{
+color:#facc15;
+}
+
+.desc{
+max-width:320px;
+margin:auto;
+line-height:1.6;
+}
+
+/* LEVELS */
+.levels{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+margin-top:20px;
+padding:10px;
+}
+
+.levels button{
+padding:12px;
+border:none;
+border-radius:20px;
+background:rgba(255,255,255,0.2);
+color:white;
+font-size:16px;
+transition:0.3s;
+}
+
+.levels button:hover{
+background:#22c55e;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<!-- Header -->
-<div class="header">
-<h1>📚 مدرستي عن بعد</h1>
-<p>اختر المستوى 🎯</p>
-</div>
+<!-- NAVBAR -->
+<div class="navbar">
 
-<!-- Levels -->
-<section id="map">
+  <div class="nav-right">
+    مدرستي عن بعد
+  </div>
 
-<div class="levels">
-
-<button class="level-btn lvl1" onclick="goLevel(1)">🟢 الأول ابتدائي</button>
-<button class="level-btn lvl2" onclick="goLevel(2)">🔵 الثاني ابتدائي</button>
-<button class="level-btn lvl3" onclick="goLevel(3)">🟣 الثالث ابتدائي</button>
-<button class="level-btn lvl4" onclick="goLevel(4)">🟠 الرابع ابتدائي</button>
-<button class="level-btn lvl5" onclick="goLevel(5)">🔴 الخامس ابتدائي</button>
-<button class="level-btn lvl6" onclick="goLevel(6)">⚫ السادس ابتدائي</button>
+  <div class="nav-left">
+    <button>الرئيسية</button>
+    <button>الدخول</button>
+    <button class="active">البداية</button>
+  </div>
 
 </div>
 
-</section>
+<!-- HERO -->
+<div class="hero">
 
-<!-- Quiz -->
-<section id="quiz" style="display:none;">
+  <!-- الوزارة -->
+  <div class="ministry">
+    <img src="شعار_وزارة_التربية_الوطنية_والتعليم_الأولي_والرياضة.png" class="logo">
+    وزارة التربية الوطنية والتعليم الأولي والرياضة – المملكة المغربية
+  </div>
 
-<div class="quiz-card">
+  <!-- صورة التلميذ -->
+  <img src="pngtree-schoolboy-with-books-thumbs-up-graphic-png-image_16327512.png" class="avatar">
 
-<h2 id="question"></h2>
+  <h1>مدرستي عن بعد 📚</h1>
 
-<div id="answers"></div>
+  <h3 class="subtitle">التعليم الابتدائي الرقمي</h3>
 
-<div class="nav-buttons">
-<button onclick="backToMap()">⬅ رجوع</button>
-<button onclick="goHome()">🏠 الرئيسية</button>
+  <p class="desc">
+    منصة رقمية مكملة للمدرسة العمومية، لدعم تعلم أطفالنا
+    في المستويات الأولى إلى السادس ابتدائي
+  </p>
+
+  <!-- المستويات -->
+  <div class="levels">
+    <button onclick="alert('المستوى 1')">الأول ابتدائي</button>
+    <button onclick="alert('المستوى 2')">الثاني</button>
+    <button onclick="alert('المستوى 3')">الثالث</button>
+    <button onclick="alert('المستوى 4')">الرابع</button>
+    <button onclick="alert('المستوى 5')">الخامس</button>
+    <button onclick="alert('المستوى 6')">السادس</button>
+  </div>
+
 </div>
-
-</div>
-
-</section>
-
-<script src="app.js"></script>
 
 </body>
 </html>
