@@ -1,3 +1,4 @@
+alert("JS خدام");
 // ===== Navigation =====
 function navigate(pageId) {
   document.querySelectorAll('.page').forEach(p => {
