@@ -3,78 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مدرستي عن بعد</title>
+  <title>مدرستي</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Navbar -->
 <nav>
   <button onclick="navigate('home')">الرئيسية</button>
   <button onclick="navigate('levels')">المستويات</button>
 </nav>
 
-<!-- الصفحة الرئيسية -->
 <section id="home" class="page active">
-  <h1>📚 مدرستي عن بعد</h1>
-  <button onclick="navigate('levels')">ابدأ الآن</button>
+  <h1>📚 مدرستي</h1>
+  <button onclick="navigate('levels')">ابدأ</button>
 </section>
 
-<!-- المستويات -->
 <section id="levels" class="page">
   <h2>اختر المستوى</h2>
-
-  <button onclick="navigate('level1')">الأول ابتدائي</button>
-  <button onclick="navigate('level2')">الثاني ابتدائي</button>
-  <button onclick="navigate('level3')">الثالث ابتدائي</button>
-  <button onclick="navigate('level4')">الرابع ابتدائي</button>
-  <button onclick="navigate('level5')">الخامس ابتدائي</button>
-  <button onclick="navigate('level6')">السادس ابتدائي</button>
+  <button onclick="navigate('level1')">الأول</button>
+  <button onclick="navigate('level2')">الثاني</button>
+  <button onclick="navigate('level3')">الثالث</button>
+  <button onclick="navigate('level4')">الرابع</button>
+  <button onclick="navigate('level5')">الخامس</button>
+  <button onclick="navigate('level6')">السادس</button>
 </section>
 
-<!-- Quiz Template (نفسه لكل مستوى) -->
+<!-- نفس structure لكل مستوى -->
 <section id="level1" class="page"><div class="quiz">
-<h3 id="question"></h3>
-<div id="answers"></div>
-<p id="result"></p>
-<p id="score">النقاط: 0</p>
+<h3 class="question"></h3>
+<div class="answers"></div>
+<p class="result"></p>
+<p class="score"></p>
 </div></section>
 
 <section id="level2" class="page"><div class="quiz">
-<h3 id="question"></h3>
-<div id="answers"></div>
-<p id="result"></p>
-<p id="score">النقاط: 0</p>
+<h3 class="question"></h3>
+<div class="answers"></div>
+<p class="result"></p>
+<p class="score"></p>
 </div></section>
 
 <section id="level3" class="page"><div class="quiz">
-<h3 id="question"></h3>
-<div id="answers"></div>
-<p id="result"></p>
-<p id="score">النقاط: 0</p>
+<h3 class="question"></h3>
+<div class="answers"></div>
+<p class="result"></p>
+<p class="score"></p>
 </div></section>
 
 <section id="level4" class="page"><div class="quiz">
-<h3 id="question"></h3>
-<div id="answers"></div>
-<p id="result"></p>
-<p id="score">النقاط: 0</p>
+<h3 class="question"></h3>
+<div class="answers"></div>
+<p class="result"></p>
+<p class="score"></p>
 </div></section>
 
 <section id="level5" class="page"><div class="quiz">
-<h3 id="question"></h3>
-<div id="answers"></div>
-<p id="result"></p>
-<p id="score">النقاط: 0</p>
+<h3 class="question"></h3>
+<div class="answers"></div>
+<p class="result"></p>
+<p class="score"></p>
 </div></section>
 
 <section id="level6" class="page"><div class="quiz">
-<h3 id="question"></h3>
-<div id="answers"></div>
-<p id="result"></p>
-<p id="score">النقاط: 0</p>
+<h3 class="question"></h3>
+<div class="answers"></div>
+<p class="result"></p>
+<p class="score"></p>
 </div></section>
 
 <script src="app.js"></script>
 </body>
-</html> 
+</html>
