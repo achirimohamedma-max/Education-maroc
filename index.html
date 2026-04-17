@@ -4,8 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>مدرستي</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
+
 <body>
 
 <nav>
@@ -13,62 +19,82 @@
   <button onclick="navigate('levels')">المستويات</button>
 </nav>
 
-<section id="home" class="page active">
-  <h1>📚 مدرستي</h1>
-  <button onclick="navigate('levels')">ابدأ</button>
+<!-- Home -->
+<section id="home" class="page active home-container">
+  <div class="hero">
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" class="hero-img">
+    <h1>📚 مدرستي الممتعة</h1>
+    <button onclick="navigate('levels')" class="start-btn">🚀 ابدأ التعلم</button>
+  </div>
 </section>
 
+<!-- Levels -->
 <section id="levels" class="page">
-  <h2>اختر المستوى</h2>
-  <button onclick="navigate('level1')">الأول</button>
-  <button onclick="navigate('level2')">الثاني</button>
-  <button onclick="navigate('level3')">الثالث</button>
-  <button onclick="navigate('level4')">الرابع</button>
-  <button onclick="navigate('level5')">الخامس</button>
-  <button onclick="navigate('level6')">السادس</button>
+  <h2>🎯 اختر المستوى</h2>
+
+  <div class="levels-grid">
+    <div class="level-card l1" onclick="navigate('level1')">الأول</div>
+    <div class="level-card l2" onclick="navigate('level2')">الثاني</div>
+    <div class="level-card l3" onclick="navigate('level3')">الثالث</div>
+    <div class="level-card l4" onclick="navigate('level4')">الرابع</div>
+    <div class="level-card l5" onclick="navigate('level5')">الخامس</div>
+    <div class="level-card l6" onclick="navigate('level6')">السادس</div>
+  </div>
 </section>
 
-<!-- نفس structure لكل مستوى -->
+<!-- Quiz Template -->
 <section id="level1" class="page"><div class="quiz">
+<div class="progress"><div class="progress-bar"></div></div>
 <h3 class="question"></h3>
 <div class="answers"></div>
 <p class="result"></p>
 <p class="score"></p>
+<div class="stars"></div>
 </div></section>
 
 <section id="level2" class="page"><div class="quiz">
+<div class="progress"><div class="progress-bar"></div></div>
 <h3 class="question"></h3>
 <div class="answers"></div>
 <p class="result"></p>
 <p class="score"></p>
+<div class="stars"></div>
 </div></section>
 
 <section id="level3" class="page"><div class="quiz">
+<div class="progress"><div class="progress-bar"></div></div>
 <h3 class="question"></h3>
 <div class="answers"></div>
 <p class="result"></p>
 <p class="score"></p>
+<div class="stars"></div>
 </div></section>
 
 <section id="level4" class="page"><div class="quiz">
+<div class="progress"><div class="progress-bar"></div></div>
 <h3 class="question"></h3>
 <div class="answers"></div>
 <p class="result"></p>
 <p class="score"></p>
+<div class="stars"></div>
 </div></section>
 
 <section id="level5" class="page"><div class="quiz">
+<div class="progress"><div class="progress-bar"></div></div>
 <h3 class="question"></h3>
 <div class="answers"></div>
 <p class="result"></p>
 <p class="score"></p>
+<div class="stars"></div>
 </div></section>
 
 <section id="level6" class="page"><div class="quiz">
+<div class="progress"><div class="progress-bar"></div></div>
 <h3 class="question"></h3>
 <div class="answers"></div>
 <p class="result"></p>
 <p class="score"></p>
+<div class="stars"></div>
 </div></section>
 
 <script src="app.js"></script>
